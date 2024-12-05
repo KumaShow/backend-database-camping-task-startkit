@@ -49,7 +49,7 @@ WHERE
 -- 1-4 查詢：取得USER 資料表目前所有用戶數量（提示：使用count函式）
 
 SELECT
-	count(*)
+	COUNT(*)
 FROM
 	"USER"
 
@@ -84,6 +84,27 @@ VALUES
     -- 1. `王小明` 購買 `14 堂組合包方案`
     -- 2. `王小明` 購買 `21 堂組合包方案`
     -- 3. `好野人` 購買 `14 堂組合包方案`
+
+INSERT INTO "CREDIT_PURCHASE" (user_id, credit_package_id, purchased_credits, price_paid)
+VALUES
+	(
+		(SELECT id FROM "USER" WHERE email = 'wXlTq@hexschooltest.io'),
+		(SELECT id FROM "CREDIT_PACKAGE" WHERE "name" = '14 堂組合包方案'),
+		(SELECT credit_amount FROM "CREDIT_PACKAGE" WHERE "name" = '14 堂組合包方案'),
+		(SELECT price FROM "CREDIT_PACKAGE" WHERE "name" = '14 堂組合包方案')
+	),
+	(	
+		(SELECT id FROM "USER" WHERE email = 'wXlTq@hexschooltest.io'),
+		(SELECT id FROM "CREDIT_PACKAGE" WHERE "name" = '21 堂組合包方案'),
+		(SELECT credit_amount FROM "CREDIT_PACKAGE" WHERE "name" = '21 堂組合包方案'),
+		(SELECT price FROM "CREDIT_PACKAGE" WHERE "name" = '21 堂組合包方案')
+	),
+	(
+		(SELECT id FROM "USER" WHERE email = 'richman@hexschooltest.io'),
+		(SELECT id FROM "CREDIT_PACKAGE" WHERE "name" = '14 堂組合包方案'),
+		(SELECT credit_amount FROM "CREDIT_PACKAGE" WHERE "name" = '14 堂組合包方案'),
+		(SELECT price FROM "CREDIT_PACKAGE" WHERE "name" = '14 堂組合包方案')
+	);
 
 
 -- ████████  █████   █    ████   
