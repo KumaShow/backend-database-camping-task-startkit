@@ -49,7 +49,7 @@ WHERE
 -- 1-4 查詢：取得USER 資料表目前所有用戶數量（提示：使用count函式）
 
 SELECT
-	COUNT(*)
+	count(*)
 FROM
 	"USER"
 
@@ -73,6 +73,7 @@ LIMIT
 -- 2-1. 新增：在`CREDIT_PACKAGE` 資料表新增三筆資料，資料需求如下：
     -- 1. 名稱為 `7 堂組合包方案`，價格為`1,400` 元，堂數為`7`
     -- 2. 名稱為`14 堂組合包方案`，價格為`2,520` 元，堂數為`14`
+    -- 3. 名稱為 `21 堂組合包方案`，價格為`4,800` 元，堂數為`21`
 
 INSERT INTO "CREDIT_PACKAGE" (name, credit_amount, price)
 VALUES 
